@@ -6,9 +6,20 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				{% if app.user %}
+					<li class="nav-item">
+						<a class="nav-link"aria-current="page" href="{{path('app_user_home_page')}}">Acceuil</a>
+					</li>
 				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="{{path('app_home')}}">Acceuil</a>
+					<a class="nav-link" aria-current="page" href="{{path('app_new_post')}}">Nouveau post</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" aria-current="page" href="{{path('app_profile')}}">Profile</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" aria-current="page" href="{{path('app_logout')}}">Se déconnecter</a>
+				</li>
+				{% endif %}
 			</ul>
 		</div>
 	</div>

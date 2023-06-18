@@ -4,6 +4,11 @@
 %}
 {% block body %}
 	<div class="container col-md-7 mt-3">
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success">
+				<b>{{ message }}</b>
+			</div>
+		{% endfor %}
 		<div class="p-5 pt-3">
 			<h1>
 				Bienvenue sur
@@ -14,8 +19,12 @@
 				      dipisicing elit. Cumque, fugiat harum quas libero officiis</small>
               <hr>
               <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, voluptatum?</small><br>
-			<button class="btn btn-primary btn-sm mt-2">Se connecter</button>
-			<button class="btn btn-primary btn-sm mt-2">S'inscrire</button>
+			{% if app.user %}
+
+			{% else %}
+				<a href="{{ path('app_login') }}" class="btn btn-primary btn-sm mt-2">Se connecter</a>
+				<a href="{{ path('app_register') }}" class="btn btn-primary btn-sm mt-2">S'inscrire</a>
+			{% endif %}
 		</div>
 	</div>
 {% endblock %}

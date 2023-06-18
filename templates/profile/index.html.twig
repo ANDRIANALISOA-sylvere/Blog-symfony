@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfileController!{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <p>Profile de  {{ app.user.userIdentifier }}</p>
+        <b>A propos de vous:</b>
+        <ul>
+            <li>Nom:{{ app.user.name }}</li>
+            <li>Prénom:{{ app.user.lastname }}</li>
+            <li>Ce compte a été créer le :{{ app.user.createdAt|date("d/M/y") }}</li>
+        </ul>
+        <a href="#"class="btn btn-info btn-sm">Modifier mon profil</a>
+        <a href="#"class="btn btn-success btn-sm">Modifier mon mot de passe</a>
+    </div>
+{% endblock %}

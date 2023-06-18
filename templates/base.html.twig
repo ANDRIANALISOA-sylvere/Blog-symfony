@@ -18,6 +18,11 @@
 			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
 	</head>
+	<style>
+		.card{
+			box-shadow: none !important;
+		}
+	</style>
 	<body>
 		{% include 'navbar/navbar.html.twig' %}
 		{% block body %}{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello NewPostController!{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+
+        <h3>Nouvelle Article</h3>
+        <hr>
+        {{ form_start(post) }}
+        <div class="form-group">
+            {{ form_label(post.titre) }}
+            {{ form_widget(post.titre) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(post.description) }}
+            {{ form_widget(post.description) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(post.image) }}
+            {{ form_widget(post.image) }}
+        </div>
+        <div class="form-group">
+            <button type="submit"class="btn btn-primary btn-sm mt-3">Ajouter</button>
+        </div>
+        {{ form_end(post) }}
+    </div>
+{% endblock %}
