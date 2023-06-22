@@ -21,12 +21,8 @@ class UserHomePageController extends AbstractController
             $request->query->getInt('page',1),
             8
         );
-        $user=$this->getUser();
-        $mypost=$postrepository->findBy(['user'=>$user]);
         return $this->render('user_home_page/index.html.twig', [
             'posts'=>$post,
-            'myposts'=>$mypost,
-            'user'=>$user,
         ]);
     }
     #[Route('/post/{id}', name: 'app_user_home_page_about')]
@@ -36,6 +32,11 @@ class UserHomePageController extends AbstractController
         return $this->render('user_home_page/post.html.twig', [
             'posts'=>$post
         ]);
+    }
+    #[Route('/mes_article',name:'app_user_page_mes_articles')]
+    public function article():Response
+    {
+        return $this->render('user_home_page/articles.html.twig');
     }
 }
 ?>

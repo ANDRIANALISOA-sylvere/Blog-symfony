@@ -9,7 +9,7 @@
 				<b>{{ message }}</b>
 			</div>
 		{% endfor %}
-		<div class="p-5 pt-3">
+		<div class="pt-3">
 			<h1>
 				Bienvenue sur
 				News
@@ -26,5 +26,24 @@
 				<a href="{{ path('app_register') }}" class="btn btn-primary btn-sm mt-2">S'inscrire</a>
 			{% endif %}
 		</div>
+		{% if posts|length < 3 %}
+		{% else %}
+			<div class="pt-3">
+				<h2>Les 3 derniers articles</h2>
+				<div class="row">
+				{% for post in posts %}
+					<div class="col-md-4">
+						<div class="card text-bg-light  mt-3 m-2" style="max-width: 18rem;">
+							<div class="card-header">Publication N°{{ post.id }}</div>
+							<div class="card-body">
+								<h5 class="card-title text-danger"><a href="{{ path('app_user_home_page_about',{'id':post.id}) }}">{{ post.titre|slice(0,18)~'...'  }}</a></h5>
+								<small class="card-text ">{{ post.description|slice(0,100) ~ '...'}}</small>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+				</div>
+			</div>
+		{% endif %}
 	</div>
 {% endblock %}

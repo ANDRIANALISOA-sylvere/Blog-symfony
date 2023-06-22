@@ -38,7 +38,14 @@ class PostRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-
+    public function dernierarticle(int $nbrearcticle):array
+    {
+        return $this->createQueryBuilder('a')
+                    ->orderBy('a.createdAt','DESC')
+                    ->setMaxResults($nbrearcticle)
+                    ->getQuery()
+                    ->getResult();
+    }
 //    /**
 //     * @return Post[] Returns an array of Post objects
 //     */

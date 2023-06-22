@@ -21,6 +21,10 @@
             {{ form_widget(post.image) }}
         </div>
         <div class="form-group">
+            {{ form_label(post.images) }}
+            {{ form_widget(post.images) }}
+        </div>
+        <div class="form-group">
             <button type="submit"class="btn btn-primary btn-sm mt-3">Ajouter</button>
         </div>
         {{ form_end(post) }}

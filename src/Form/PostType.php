@@ -42,7 +42,19 @@ class PostType extends AbstractType
                 ],
                 'label_attr'=>[
                     'class'=>'form-label mt-3'
-                ]
+                ],
+                'required'=>false
+            ])
+            ->add('images',FileType::class,[
+                'attr'=>[
+                    'placeholder'=>'Choisir plusieurs image',
+                    'class'=>'form-control'
+                ],
+                'label_attr'=>[
+                    'class'=>'form-label mt-3'
+                ],
+                'multiple'=>true,
+                'required'=>false,
             ])
 
         ;

@@ -6,6 +6,7 @@ use App\Repository\PostRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 class Post
 {
@@ -29,8 +30,11 @@ class Post
     #[ORM\Column]
     private ?\DateTimeImmutable $updatedAt = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 50, nullable: true)]
     private ?string $image = null;
+
+    #[ORM\Column(type: Types::ARRAY, nullable: true)]
+    private array $images = [];
 
     public function getId(): ?int
     {
@@ -105,7 +109,28 @@ class Post
     public function setImage(string $image): self
     {
         $this->image = $image;
+        return $this;
+    }
+
+    public function getImages(): array
+    {
+        return $this->images;
+    }
+
+    public function setImages(?array $images): self
+    {
+        $this->images = $images;
 
         return $this;
     }
+    public function serialize()
+    {
+        // TODO: Implement serialize() method.
+    }
+
+    public function unserialize(string $data)
+    {
+        // TODO: Implement unserialize() method.
+    }
+
 }

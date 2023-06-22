@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Mes articles {% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <b class="mt-4 mb-3">Mes articles</b>
+    <div class="row">
+        {% if app.user.posts|length > 0 %}
+            {% for mypost in app.user.posts %}
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                        <img src="{{ asset('images/' ~ mypost.image )}} " class="card-img-top" alt="..."style="height:150px;">
+                        <div class="card-body"style="background: rgb(250,250,250)">
+                            <h5 class="card-title">{{ mypost.titre|upper }}</h5>
+                            <a href="{{ path('app_user_home_page_about',{'id':mypost.id}) }}" class="btn btn-primary btn-sm">Voir en détails...</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="text-danger"><b>Vous n'avez pas encore poster une article.</b></p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
