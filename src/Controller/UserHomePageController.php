@@ -19,7 +19,7 @@ class UserHomePageController extends AbstractController
         $post=$paginator->paginate(
             $postrepository->findBy([],['createdAt'=>'DESC']),
             $request->query->getInt('page',1),
-            8
+            3
         );
         return $this->render('user_home_page/index.html.twig', [
             'posts'=>$post,
@@ -40,4 +40,3 @@ class UserHomePageController extends AbstractController
     }
 }
 ?>
-

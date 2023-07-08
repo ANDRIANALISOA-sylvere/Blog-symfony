@@ -6,7 +6,6 @@
     <div class="container mt-5">
         {% if is_granted("ROLE_USER") %}
             <div class="float-end">
-
                 <b class="mt-4">Publication:</b><br>
                 <span>Poster une nouvelle article:</span><br>
                 <a href="{{ path("app_new_post")}}"class="btn btn-success btn-sm">Ajouter une nouvelle article</a>
@@ -18,23 +17,25 @@
         <br><br>
         <div class="row">
             {% for post in posts %}
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <img src="
-                        {{ asset('images/' ~ post.image )}} " class="card-img-top" alt="..."style="height:150px;">
-                        <div class="card-body"style="background: rgb(250,250,250)">
-                            <h5 class="card-title">{{ post.titre|upper|slice(0,18)~'...' }}</h5>
-                            <small class="card-text ">{{ post.description|slice(0,100) ~ '...'}}</small><br><br>
-                            <a href="{{ path('app_user_home_page_about',{'id':post.id}) }}" class="btn btn-primary btn-sm">Voir en détails...</a>
-                            <small style="float: right;">{{ post.user.lastname }}</small>
-                        </div>
+            <div class="card mb-5 m-3 mx-auto card-no-border" style="max-width: 1000px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                    <img src="{{ asset('images/' ~ post.image )}}" class="img-fluid me-2" alt="{{post.image}}"style="height:100%;">
+                    </div>
+                    <div class="col-md-8">
+                    <div class="card-body ms-5">
+                        <h5 class="card-title">{{ post.titre|upper|slice(0,20)~'...' }}</h5>
+                        <p class="card-text">{{ post.description|slice(0,100) ~ '...'}}</p>
+                        <a href="{{ path('app_user_home_page_about',{'id':post.id}) }}" class="btn btn-primary btn-sm">Voir en détails...</a>
+                        <p class="card-text"style="float:right;"><small class="text-muted">{{ post.user.lastname }}</small></p>
+                    </div>
                     </div>
                 </div>
+            </div>
             {% endfor %}
-            {# display navigation #}
-                <div class="navigation d-flex justify-content-center mt-4">
-                    {{ knp_pagination_render(posts) }}
-                </div>
+        </div>
+        <div class="navigation d-flex justify-content-center">
+            {{knp_pagination_render(posts)}}
         </div>
         {% endif %}
         <br>

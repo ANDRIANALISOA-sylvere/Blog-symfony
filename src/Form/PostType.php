@@ -17,47 +17,45 @@ class PostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('titre',\Symfony\Component\Form\Extension\Core\Type\TextType::class,[
-                'attr'=>[
-                    'placeholder'=>'Entrer le titre',
-                    'class'=>'form-control'
+            ->add('titre', \Symfony\Component\Form\Extension\Core\Type\TextType::class, [
+                'attr' => [
+                    'placeholder' => 'Entrer le titre',
+                    'class' => 'form-control'
                 ],
-                'label_attr'=>[
-                    'class'=>'form-label mt-3'
+                'label_attr' => [
+                    'class' => 'form-label mt-3'
                 ]
             ])
-            ->add('description',TextareaType::class,[
-                'attr'=>[
-                    'placeholder'=>'Entrer la description',
-                    'class'=>'form-control'
+            ->add('description', TextareaType::class, [
+                'attr' => [
+                    'placeholder' => 'Entrer la description',
+                    'class' => 'form-control'
                 ],
-                'label_attr'=>[
-                        'class'=>'form-label mt-3'
-                    ]
+                'label_attr' => [
+                    'class' => 'form-label mt-3'
+                ]
             ])
-            ->add('image',FileType::class,[
-                'attr'=>[
-                    'placeholder'=>"Choisir l'image",
-                    'class'=>'form-control'
+            ->add('image', FileType::class, [
+                'attr' => [
+                    'placeholder' => "Choisir l'image",
+                    'class' => 'form-control'
                 ],
-                'label_attr'=>[
-                    'class'=>'form-label mt-3'
+                'label_attr' => [
+                    'class' => 'form-label mt-3'
                 ],
-                'required'=>false
+                'required' => false
             ])
-            ->add('images',FileType::class,[
-                'attr'=>[
-                    'placeholder'=>'Choisir plusieurs image',
-                    'class'=>'form-control'
+            ->add('images', FileType::class, [
+                'attr' => [
+                    'placeholder' => 'Choisir plusieurs image',
+                    'class' => 'form-control'
                 ],
-                'label_attr'=>[
-                    'class'=>'form-label mt-3'
+                'label_attr' => [
+                    'class' => 'form-label mt-3'
                 ],
-                'multiple'=>true,
-                'required'=>false,
-            ])
-
-        ;
+                'multiple' => true,
+                'required' => false,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
