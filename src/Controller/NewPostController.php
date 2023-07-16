@@ -53,8 +53,8 @@ class NewPostController extends AbstractController
             $manager->persist($post);
             $manager->flush();
 
-            return $this->redirectToRoute("app_user_home_page_about",[
-                "id"=>$post->getId(),
+            return $this->redirectToRoute("app_user_home_page_about", [
+                "id" => $post->getId(),
             ]);
         }
         return $this->render('new_post/index.html.twig', [
